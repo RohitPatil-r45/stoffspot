@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #edd81c;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+main {
+  width: 100%;
+}
+section {
+  width: 100%;
+}
+nav {
+  z-index: 10;
+  position: fixed;
+}
+.nav-space-filler {
+  position: relative;
+  top: 0;
+  height: 125px;
+}
+footer {
+  width: 100%;
+  height: 425px;
+  background: #edd81c;
+  font-size: large;
+}
