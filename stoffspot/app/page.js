@@ -19,22 +19,24 @@ export default function Home() {
     { id: "4", name: "product name", price: 300, desc: "Product Desc" },
   ];
   return (
-    <main>
-      <section>
-        <article className={styles.ads}>{user.name}</article>
-        <article className={styles.category}>
+    <main className="w-full">
+      <section className="w-full">
+        <article className="w-full h-[840px] bg-[#fffcbf] flex justify-center items-center">
+          ADS
+        </article>
+        <article className="category">
           <h1>Best Sellers</h1>
-          <div className={styles.menus}>
+          <div className="menus">
             <span>MENS</span>
             <span>WOMENS</span>
             <span>KIDS</span>
             <span>ART & CRAFT</span>
           </div>
-          <div className={styles.cards}>
+          <div className="cards">
             {bestSellers.map((product) => {
               const { id, name, price, desc } = product;
               return (
-                <div key={id} className={styles.card}>
+                <div key={id} className="card">
                   <FaRegHeart className={styles.heart} />
                   <div className={styles.img}>{id}</div>
                   <strong>{name}</strong>
@@ -46,20 +48,20 @@ export default function Home() {
             })}
           </div>
         </article>
-        <article className={styles.category}>
+        <article className="category">
           <h1>New Arrivals</h1>
-          <div className={styles.menus}>
+          <div className="menus">
             <span>MENS</span>
             <span>WOMENS</span>
             <span>KIDS</span>
             <span>ART & CRAFT</span>
           </div>
-          <div className={styles.cards}>
+          <div className="cards">
             {newArrival.map((product) => {
               const { id, name, price, desc } = product;
 
               return (
-                <div key={id} className={styles.card}>
+                <div key={id} className="card">
                   <FaRegHeart className={styles.heart} />
                   <div className={styles.img}>{id}</div>
                   <strong>{name}</strong>
