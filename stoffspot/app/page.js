@@ -1,7 +1,5 @@
 "use client";
-import styles from "./Home.module.css";
-import { FaRegHeart } from "react-icons/fa";
-
+import { Heart } from "@/components/SVG";
 import { useSelector, useDispatch } from "react-redux";
 export default function Home() {
   const user = useSelector((state) => state.user.user);
@@ -19,7 +17,7 @@ export default function Home() {
     { id: "4", name: "product name", price: 300, desc: "Product Desc" },
   ];
   return (
-    <main className="w-full">
+    <main className="w-full overflow-hidden">
       <section className="w-full">
         <article className="w-full h-[840px] bg-[#fffcbf] flex justify-center items-center">
           ADS
@@ -32,13 +30,17 @@ export default function Home() {
             <span>KIDS</span>
             <span>ART & CRAFT</span>
           </div>
-          <div className="cards">
+          <div className="cards w-full xl:w-[90%]">
             {bestSellers.map((product) => {
               const { id, name, price, desc } = product;
               return (
-                <div key={id} className="card">
-                  <FaRegHeart className={styles.heart} />
-                  <div className={styles.img}>{id}</div>
+                <div key={id} className="card w-40 xl:w-[335px]">
+                  <div className="heart relative top-56 left-32  xl:top-[26rem] xl:left-72 xl:scale-150">
+                    <Heart className="w-5 xl:w-10 xl:h-10 " />
+                  </div>
+                  <div className="img w-40 h-60 xl:w-[335px] xl:h-[445px]">
+                    {id}
+                  </div>
                   <strong>{name}</strong>
 
                   <desc>{desc}</desc>
@@ -56,14 +58,18 @@ export default function Home() {
             <span>KIDS</span>
             <span>ART & CRAFT</span>
           </div>
-          <div className="cards">
+          <div className="cards w-full  xl:w-[90%]">
             {newArrival.map((product) => {
               const { id, name, price, desc } = product;
 
               return (
-                <div key={id} className="card">
-                  <FaRegHeart className={styles.heart} />
-                  <div className={styles.img}>{id}</div>
+                <div key={id} className="card w-40 xl:w-[335px]">
+                  <div className="heart relative top-56 left-32  xl:top-[26rem] xl:left-72 xl:scale-150">
+                    <Heart className="w-5 xl:w-10 xl:h-10" />
+                  </div>
+                  <div className="img w-40 h-60 xl:w-[335px] xl:h-[445px]">
+                    {id}
+                  </div>
                   <strong>{name}</strong>
                   <desc>{desc}</desc>
                   <b>${price}</b>
@@ -72,9 +78,11 @@ export default function Home() {
             })}
           </div>
         </article>
-        <article className={styles.about}>
-          <div className={styles.info}>
-            <h3>Why is sustainable fashion better than rapid fashion?</h3>
+        <article className="w-full h-[500px] px-2 flex my-8 text-xs md:text-sm md:h-[840px] xl:text-2xl ">
+          <div className="w-1/2 h-full text-left xl:pl-40 xl:pt-8">
+            <h3 className="text-[#dac400] my-4 text-2xl">
+              Why is sustainable fashion better than rapid fashion?
+            </h3>
             <p>
               Sustainable fashion prioritizes environmental and social
               responsibility throughout the manufacturing process. Unlike fast
@@ -86,7 +94,7 @@ export default function Home() {
               better place to live for generations to come.
             </p>
           </div>
-          <div className={styles.img50}></div>
+          <div className="w-1/2 h-[500px] rounded-[28px] bg-hero bg-cover bg-center xl:h-full"></div>
         </article>
       </section>
     </main>

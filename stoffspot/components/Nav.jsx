@@ -1,7 +1,7 @@
 "use client";
-import { GoSearch } from "react-icons/go";
 import Link from "next/link";
 import { useState } from "react";
+import { Heart } from "./SVG";
 const Nav = () => {
   const [menu, setMenu] = useState({
     men: false,
@@ -12,18 +12,19 @@ const Nav = () => {
     coupons: false,
   });
   return (
-    <nav className="w-full  min-h-[125px] flex flex-col fixed z-10 md:h-[125px]">
+    <nav className="w-full fixed min-h-[125px] flex flex-col  z-10 ">
       <div className="w-full  min-h-[75px]  bg-[--primary] flex justify-around items-center ">
         <Link href="/about" className="hidden md:flex">
           ABOUT
         </Link>
-        <Link href="/" className="text-[3rem] tracking-[1rem] text-white">
+        <Link href="/" className=" text-white flex justify-center">
           <svg
             width="450"
             height="35"
             viewBox="0 0 450 35"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="w-[90%]"
           >
             <mask id="path-1-inside-1_165_44" fill="white">
               <path d="M19.2513 24.497C19.28 27.1161 18.3528 29.3529 16.4697 31.1977C14.5867 33.0521 12.3117 33.9793 9.64479 33.9793C6.97789 33.9793 4.70291 33.0617 2.83895 31.2264C0.974993 29.3816 0.0286763 27.0875 0 24.325H3.37424C3.34556 26.0934 3.94777 27.6132 5.16173 28.9036C6.38525 30.1941 7.8573 30.8536 9.57788 30.8823C11.3845 30.911 12.933 30.2992 14.2234 29.047C15.5139 27.7948 16.1352 26.2654 16.0778 24.4492C15.9918 21.4669 14.0323 19.3831 10.1801 18.1787L6.75804 17.1177C4.95144 16.5633 3.5463 15.5883 2.54263 14.2118C1.53896 12.8354 1.02279 11.1817 0.994111 9.26038C0.974993 6.88981 1.8544 4.87292 3.63233 3.21925C5.41982 1.56559 7.51318 0.743533 9.94111 0.772209C12.3308 0.800886 14.3668 1.67073 16.0396 3.38175C17.7124 5.09277 18.544 7.1479 18.544 9.53759H15.1697C15.1984 8.02731 14.7014 6.71776 13.6881 5.62806C12.6749 4.53836 11.4323 3.94572 9.96023 3.85969C8.41171 3.78322 7.0448 4.28983 5.85952 5.38909C4.68379 6.4979 4.11982 7.81701 4.17718 9.35597C4.23453 11.8699 5.45805 13.5045 7.8573 14.2596L11.7382 15.4736C16.6896 17.0317 19.194 20.0427 19.2513 24.497Z" />
@@ -148,36 +149,21 @@ const Nav = () => {
               <path
                 d="M9.6174 10.3403C12.1605 10.3403 14.2221 8.27867 14.2221 5.73556C14.2221 3.19246 12.1605 1.13086 9.6174 1.13086C7.07429 1.13086 5.0127 3.19246 5.0127 5.73556C5.0127 8.27867 7.07429 10.3403 9.6174 10.3403Z"
                 stroke="black"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M15.5838 19.5242H3.98816C2.2078 19.5242 0.749023 18.0654 0.749023 16.285C0.749023 14.5047 2.2078 13.0459 3.98816 13.0459H15.5838C17.3642 13.0459 18.8229 14.5047 18.8229 16.285C18.8276 18.0701 17.3688 19.5242 15.5838 19.5242Z"
                 stroke="black"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Link>
           <Link href="/wishlist">
-            <svg
-              width="19"
-              height="16"
-              viewBox="0 0 19 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 mr-4"
-            >
-              <path
-                d="M17.9301 6.29468C17.3103 10.4799 10.9439 14.0313 9.61558 14.7258C9.46644 14.805 9.28467 14.8097 9.13087 14.7304C7.77463 14.05 1.15188 10.5172 0.81631 6.29002C0.466763 1.92301 4.65667 -1.5678 9.54567 3.3212C13.7402 -1.56314 18.6292 1.58278 17.9301 6.29468Z"
-                stroke="black"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <Heart />
           </Link>
           <Link href="/cart">
             <svg
@@ -191,23 +177,23 @@ const Nav = () => {
               <path
                 d="M16.0193 18.5239H3.24918C1.97216 18.5239 0.9375 17.4892 0.9375 16.2122V7.36636C0.9375 6.08935 1.97216 5.05469 3.24918 5.05469H16.0193C17.2963 5.05469 18.331 6.08935 18.331 7.36636V16.2122C18.331 17.4892 17.2963 18.5239 16.0193 18.5239Z"
                 stroke="black"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M6.56738 8.29425V4.20221C6.56738 2.50575 7.94227 1.13086 9.63874 1.13086C11.3352 1.13086 12.7101 2.50575 12.7101 4.20221V8.29425"
                 stroke="black"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Link>
         </div>
       </div>
-      <div className="w-full  min-h-[50px] flex justify-center items-center bg-white shadow sticky z-11 ">
-        <div className="w-[75%]  min-h-full ml-[20rem] flex justify-center items-center">
+      <div className="w-full  min-h-[50px] flex justify-center items-center bg-white shadow z-11 ">
+        <div className="w-full md:w-[75%] text-sm  min-h-full md:ml-[20rem] flex justify-center items-center md:text-xl xl:text-2xl">
           <span
             className={
               menu.men
@@ -304,7 +290,7 @@ const Nav = () => {
             COUPONS
           </span>
         </div>
-        <div className="search">
+        <div className=" hidden w-1/4  md:flex md:justify-center md:items-center">
           <svg
             width="20"
             height="20"
@@ -316,16 +302,16 @@ const Nav = () => {
             <path
               d="M7.61343 14.2269C11.2659 14.2269 14.2269 11.2659 14.2269 7.61343C14.2269 3.96094 11.2659 1 7.61343 1C3.96094 1 1 3.96094 1 7.61343C1 11.2659 3.96094 14.2269 7.61343 14.2269Z"
               stroke="black"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M12.2188 12.5205L18.697 18.6586"
               stroke="black"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
 
@@ -339,7 +325,7 @@ const Nav = () => {
       {menu.men && (
         <div className="menuDetails">
           <div className="flex">
-            <div className="links">
+            <div className="links xl:mr-20 xl:mr-20">
               <b className="text-orange-500">MENS</b>
 
               <Link href="#">Kurtas & Suits</Link>
@@ -355,7 +341,7 @@ const Nav = () => {
               <Link href="#">Dupattas & Shawls</Link>
               <Link href="#">Jackets</Link>
             </div>
-            <div className="links">
+            <div className="links xl:mr-20 xl:mr-20">
               <b className="text-[#DAC400]"> Western Wear</b>
 
               <Link href="#">Dresses</Link>
@@ -378,7 +364,7 @@ const Nav = () => {
       {menu.women && (
         <div className="menuDetails">
           <div className="flex">
-            <div className="links">
+            <div className="links xl:mr-20 ">
               <b className="text-[#DAC400]">Indian & Fusion Wear</b>
 
               <Link href="#">Kurtas & Suits</Link>
@@ -394,7 +380,7 @@ const Nav = () => {
               <Link href="#">Dupattas & Shawls</Link>
               <Link href="#">Jackets</Link>
             </div>
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-[#DAC400]"> Western Wear</b>
 
               <Link href="#">Dresses</Link>
@@ -417,7 +403,7 @@ const Nav = () => {
       {menu.kids && (
         <div className="menuDetails">
           <div className="flex">
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-green-500">Kids</b>
 
               <Link href="#">Kurtas & Suits</Link>
@@ -433,7 +419,7 @@ const Nav = () => {
               <Link href="#">Dupattas & Shawls</Link>
               <Link href="#">Jackets</Link>
             </div>
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-[#DAC400]"> Western Wear</b>
 
               <Link href="#">Dresses</Link>
@@ -456,7 +442,7 @@ const Nav = () => {
       {menu.sports && (
         <div className="menuDetails">
           <div className="flex">
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-purple-500">Sports</b>
 
               <Link href="#">Kurtas & Suits</Link>
@@ -472,7 +458,7 @@ const Nav = () => {
               <Link href="#">Dupattas & Shawls</Link>
               <Link href="#">Jackets</Link>
             </div>
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-[#DAC400]"> Western Wear</b>
 
               <Link href="#">Dresses</Link>
@@ -495,7 +481,7 @@ const Nav = () => {
       {menu.art && (
         <div className="menuDetails">
           <div className="flex">
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-blue-500">ART</b>
 
               <Link href="#">Kurtas & Suits</Link>
@@ -511,7 +497,7 @@ const Nav = () => {
               <Link href="#">Dupattas & Shawls</Link>
               <Link href="#">Jackets</Link>
             </div>
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-[#DAC400]"> Western Wear</b>
 
               <Link href="#">Dresses</Link>
@@ -534,7 +520,7 @@ const Nav = () => {
       {menu.coupons && (
         <div className="menuDetails">
           <div className="flex">
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-red-500">Coupons</b>
 
               <Link href="#">Kurtas & Suits</Link>
@@ -550,7 +536,7 @@ const Nav = () => {
               <Link href="#">Dupattas & Shawls</Link>
               <Link href="#">Jackets</Link>
             </div>
-            <div className="links">
+            <div className="links xl:mr-20">
               <b className="text-[#DAC400]"> Western Wear</b>
 
               <Link href="#">Dresses</Link>

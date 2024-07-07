@@ -14,14 +14,6 @@ export default function RootLayout({ children }) {
     <StoreProvider>
       <html lang="en">
         <head>
-          <link
-            href="https://fonts.cdnfonts.com/css/abeatbykai"
-            rel="stylesheet"
-          />
-          <style>
-            @import url('https://fonts.cdnfonts.com/css/abeatbykai');
-          </style>
-
           <link rel="icon" href="/logo.svg" sizes="any" />
         </head>
         <body>
