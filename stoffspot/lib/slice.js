@@ -4,6 +4,9 @@ import { products } from "./data";
 const initialState = {
   user: { name: "User name" },
   products: products,
+  cart: [],
+  wishlist: [],
+  isLogin: false,
 };
 
 export const userSlice = createSlice({
