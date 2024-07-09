@@ -17,6 +17,9 @@ body {
 }
 
 @layer utilities {
+  .logo {
+    animation: animate-stroke 3s infinite alternate;
+  }
   .menuDetails {
     width: 100%;
     padding: 2rem 5rem;
@@ -100,5 +103,42 @@ body {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes animate-stroke {
+  0% {
+    fill: transparent;
+    stroke: white;
+    stroke-width: 3;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 32%;
+  }
+  50% {
+    fill: transparent;
+    stroke: white;
+    stroke-width: 3;
+  }
+  80%,
+  100% {
+    fill: white;
+    stroke: transparent;
+    stroke-width: 0;
+    stroke-width: -25%;
+    stroke-dasharray: 32% 0;
+  }
+}
+@keyframes text-color-change-4x {
+  0% {
+    color: #19dcea;
+  }
+  33.3333% {
+    color: #b22cff;
+  }
+  66.666% {
+    color: #ea2222;
+  }
+  100% {
+    color: #f5be10;
   }
 }
