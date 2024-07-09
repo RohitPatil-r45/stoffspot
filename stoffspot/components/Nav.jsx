@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Heart } from "./SVG";
+import { Cart, Heart, User } from "./SVG";
+import { SiHomebridge } from "react-icons/si";
 const Nav = () => {
   const [menu, setMenu] = useState({
     men: false,
@@ -11,14 +12,21 @@ const Nav = () => {
     art: false,
     coupons: false,
   });
+  const [nav, setNav] = useState({
+    Home: true,
+    Wishlist: false,
+    Cart: false,
+    User: false,
+  });
+  const activeClass = { color: "#DAC400", borderBotton: "2px solid #DAC400" };
   return (
-    <nav className="w-full fixed min-h-[125px] flex flex-col  z-10 ">
+    <nav className="w-full fixed min-h-[125px] flex justify-center items-center flex-col  z-10 ">
       <div className="w-full  min-h-[75px]  bg-[--primary] flex justify-around items-center ">
         <Link href="/about" className="hidden md:flex">
           ABOUT
         </Link>
         <Link href="/" className=" text-white flex justify-center">
-          <svg
+          {/* <svg
             width="450"
             height="35"
             viewBox="0 0 450 35"
@@ -134,61 +142,31 @@ const Nav = () => {
               fill="white"
               mask="url(#path-17-inside-9_165_44)"
             />
+          </svg> */}
+          <svg
+            viewBox="0 0 300 100"
+            className="logo w-40 h-8 scale-[2] font-bold "
+          >
+            <text
+              x="50%"
+              y="50%"
+              dy="2rem"
+              textAnchor="middle"
+              className="text-7xl stroke-2 tracking-[10px]  stroke-white"
+            >
+              STOFFSPOT
+            </text>
           </svg>
         </Link>
         <div className="hidden  md:flex justify-center items-center">
-          <Link href="/user">
-            <svg
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 mr-4"
-            >
-              <path
-                d="M9.6174 10.3403C12.1605 10.3403 14.2221 8.27867 14.2221 5.73556C14.2221 3.19246 12.1605 1.13086 9.6174 1.13086C7.07429 1.13086 5.0127 3.19246 5.0127 5.73556C5.0127 8.27867 7.07429 10.3403 9.6174 10.3403Z"
-                stroke="black"
-                strokeMiterlimit="10"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M15.5838 19.5242H3.98816C2.2078 19.5242 0.749023 18.0654 0.749023 16.285C0.749023 14.5047 2.2078 13.0459 3.98816 13.0459H15.5838C17.3642 13.0459 18.8229 14.5047 18.8229 16.285C18.8276 18.0701 17.3688 19.5242 15.5838 19.5242Z"
-                stroke="black"
-                strokeMiterlimit="10"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+          <Link href="/user" className="w-6 h-6 mr-4">
+            <User />
           </Link>
-          <Link href="/wishlist">
+          <Link href="/wishlist" className="w-6 h-6 mr-4">
             <Heart />
           </Link>
-          <Link href="/cart">
-            <svg
-              width="19"
-              height="20"
-              viewBox="0 0 19 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 mr-4"
-            >
-              <path
-                d="M16.0193 18.5239H3.24918C1.97216 18.5239 0.9375 17.4892 0.9375 16.2122V7.36636C0.9375 6.08935 1.97216 5.05469 3.24918 5.05469H16.0193C17.2963 5.05469 18.331 6.08935 18.331 7.36636V16.2122C18.331 17.4892 17.2963 18.5239 16.0193 18.5239Z"
-                stroke="black"
-                strokeMiterlimit="10"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M6.56738 8.29425V4.20221C6.56738 2.50575 7.94227 1.13086 9.63874 1.13086C11.3352 1.13086 12.7101 2.50575 12.7101 4.20221V8.29425"
-                stroke="black"
-                strokeMiterlimit="10"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+          <Link href="/cart" className="w-6 h-6 mr-4">
+            <Cart />
           </Link>
         </div>
       </div>
@@ -556,6 +534,53 @@ const Nav = () => {
           </div>
         </div>
       )}
+
+      <div className="w-11/12 h-[50px]   flex justify-evenly items-center fixed bottom-2 le rounded-full bg-white md:hidden">
+        <Link
+          href="/"
+          className="h-full flex flex-col justify-center items-center w-20"
+          style={nav.Home ? activeClass : {}}
+          onClick={() =>
+            setNav({ Home: true, Wishlist: false, Cart: false, User: false })
+          }
+        >
+          <SiHomebridge />
+          <span>Home</span>
+        </Link>
+        <Link
+          href="/wishlist"
+          className="h-full flex flex-col justify-center items-center w-20"
+          style={nav.Wishlist ? activeClass : {}}
+          onClick={() =>
+            setNav({ Home: false, Wishlist: true, Cart: false, User: false })
+          }
+        >
+          <Heart color={nav.Wishlist && "#DAC400"} />
+          <span>Wishlist</span>
+        </Link>
+        <Link
+          href="/cart"
+          className="h-full flex flex-col justify-center items-center w-20"
+          style={nav.Cart ? activeClass : {}}
+          onClick={() =>
+            setNav({ Home: false, Wishlist: false, Cart: true, User: false })
+          }
+        >
+          <Cart color={nav.Cart && "#DAC400"} />
+          <span>Cart</span>
+        </Link>
+        <Link
+          href="/user"
+          className="h-full flex flex-col justify-center items-center w-20"
+          style={nav.User ? activeClass : {}}
+          onClick={() =>
+            setNav({ Home: false, Wishlist: false, Cart: false, User: true })
+          }
+        >
+          <User color={nav.User && "#DAC400"} />
+          <span>Profile</span>
+        </Link>
+      </div>
     </nav>
   );
 };
