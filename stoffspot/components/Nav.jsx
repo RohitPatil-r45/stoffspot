@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Cart, Heart, User } from "./SVG";
 import { SiHomebridge } from "react-icons/si";
 const Nav = () => {
@@ -18,7 +18,12 @@ const Nav = () => {
     Cart: false,
     User: false,
   });
-  const activeClass = { color: "#DAC400", borderBotton: "2px solid #DAC400" };
+  const [search, setSearch] = useState("");
+  const activeClass = { color: "white", borderBotton: "2px solid white" };
+  const handleSearch = () => {
+    console.log(search);
+    setSearch("");
+  };
   return (
     <nav className="w-full fixed min-h-[125px] flex justify-center items-center flex-col  z-10 ">
       <div className="w-full  min-h-[75px]  bg-[--primary] flex justify-around items-center ">
@@ -534,8 +539,37 @@ const Nav = () => {
           </div>
         </div>
       )}
+      <div className="fixed right-2 top-32 p-5 overflow-hidden w-[60px] h-[60px] hover:w-[395px] bg-[#4070f4] shadow-[2px_2px_20px_rgba(0,0,0,0.08)] rounded-full flex group items-center hover:duration-300 duration-300 md:hidden">
+        <div className="flex items-center justify-end fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            id="Isolation_Mode"
+            data-name="Isolation Mode"
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+          >
+            <path d="M18.9,16.776A10.539,10.539,0,1,0,16.776,18.9l5.1,5.1L24,21.88ZM10.5,18A7.5,7.5,0,1,1,18,10.5,7.507,7.507,0,0,1,10.5,18Z"></path>
+          </svg>
+        </div>
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSearch();
+          }}
+          className="outline-none text-[20px] bg-transparent w-full text-white font-normal px-4"
+        />
+      </div>
 
-      <div className="w-11/12 h-[50px]   flex justify-evenly items-center fixed bottom-2 le rounded-full bg-white md:hidden">
+      <div
+        className="w-11/12 h-[50px] scrollUp  font-medium flex justify-evenly items-center fixed bottom-2 le rounded-full  bg- md:hidden"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle farthest-corner at 10.2% 55.8%, rgba(252, 37, 103, 1) 0%, rgba(250, 38, 151, 1) 46.2%, rgba(186, 8, 181, 1) 90.1%)",
+        }}
+      >
         <Link
           href="/"
           className="h-full flex flex-col justify-center items-center w-20"
@@ -555,7 +589,7 @@ const Nav = () => {
             setNav({ Home: false, Wishlist: true, Cart: false, User: false })
           }
         >
-          <Heart color={nav.Wishlist && "#DAC400"} />
+          <Heart color={nav.Wishlist && "white"} />
           <span>Wishlist</span>
         </Link>
         <Link
@@ -566,7 +600,7 @@ const Nav = () => {
             setNav({ Home: false, Wishlist: false, Cart: true, User: false })
           }
         >
-          <Cart color={nav.Cart && "#DAC400"} />
+          <Cart color={nav.Cart && "white"} />
           <span>Cart</span>
         </Link>
         <Link
@@ -577,7 +611,7 @@ const Nav = () => {
             setNav({ Home: false, Wishlist: false, Cart: false, User: true })
           }
         >
-          <User color={nav.User && "#DAC400"} />
+          <User color={nav.User && "white"} />
           <span>Profile</span>
         </Link>
       </div>
