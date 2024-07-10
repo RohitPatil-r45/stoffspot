@@ -39,7 +39,7 @@ body {
   }
   .menuDetails {
     width: 100%;
-    padding: 2rem 5rem;
+
     display: flex;
     z-index: 9;
     position: relative;

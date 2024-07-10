@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { Cart, Heart, User } from "./SVG";
 import { SiHomebridge } from "react-icons/si";
+import { FaArrowCircleRight } from "react-icons/fa";
 const Nav = () => {
   const [menu, setMenu] = useState({
     men: false,
@@ -19,10 +20,15 @@ const Nav = () => {
     User: false,
   });
   const [search, setSearch] = useState("");
+  const inputRef = useRef(null);
   const activeClass = { color: "white", borderBotton: "2px solid white" };
   const handleSearch = () => {
     console.log(search);
-    setSearch("");
+    if (!search) {
+      alert("Please enter product name!");
+    }
+    alert(search);
+    // setSearch("");
   };
   return (
     <nav className="w-full fixed min-h-[125px] flex justify-center items-center flex-col  z-10 ">
@@ -301,14 +307,19 @@ const Nav = () => {
           <input
             type="search"
             placeholder="SEARCH"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSearch();
+            }}
             className="w-[250px] border-b-[1px] border-black outline-none placeholder-black"
           />
         </div>
       </div>
       {menu.men && (
-        <div className="menuDetails">
-          <div className="flex">
-            <div className="links xl:mr-20 xl:mr-20">
+        <div className="menuDetails lg:py-8 lg:px-20 ">
+          <div className="flex w-full justify-around lg:justify-center">
+            <div className="links xl:mr-20 ">
               <b className="text-orange-500">MENS</b>
 
               <Link href="#">Kurtas & Suits</Link>
@@ -324,7 +335,7 @@ const Nav = () => {
               <Link href="#">Dupattas & Shawls</Link>
               <Link href="#">Jackets</Link>
             </div>
-            <div className="links xl:mr-20 xl:mr-20">
+            <div className="links xl:mr-20 ">
               <b className="text-[#DAC400]"> Western Wear</b>
 
               <Link href="#">Dresses</Link>
@@ -345,8 +356,8 @@ const Nav = () => {
         </div>
       )}
       {menu.women && (
-        <div className="menuDetails">
-          <div className="flex">
+        <div className="menuDetails lg:py-8 lg:px-20">
+          <div className="flex w-full justify-around lg:justify-center">
             <div className="links xl:mr-20 ">
               <b className="text-[#DAC400]">Indian & Fusion Wear</b>
 
@@ -384,8 +395,8 @@ const Nav = () => {
         </div>
       )}
       {menu.kids && (
-        <div className="menuDetails">
-          <div className="flex">
+        <div className="menuDetails lg:py-8 lg:px-20">
+          <div className="flex w-full justify-around lg:justify-center">
             <div className="links xl:mr-20">
               <b className="text-green-500">Kids</b>
 
@@ -423,8 +434,8 @@ const Nav = () => {
         </div>
       )}
       {menu.sports && (
-        <div className="menuDetails">
-          <div className="flex">
+        <div className="menuDetails lg:py-8 lg:px-20">
+          <div className="flex w-full justify-around lg:justify-center">
             <div className="links xl:mr-20">
               <b className="text-purple-500">Sports</b>
 
@@ -462,8 +473,8 @@ const Nav = () => {
         </div>
       )}
       {menu.art && (
-        <div className="menuDetails">
-          <div className="flex">
+        <div className="menuDetails lg:py-8 lg:px-20">
+          <div className="flex w-full justify-around lg:justify-center">
             <div className="links xl:mr-20">
               <b className="text-blue-500">ART</b>
 
@@ -501,8 +512,8 @@ const Nav = () => {
         </div>
       )}
       {menu.coupons && (
-        <div className="menuDetails">
-          <div className="flex">
+        <div className="menuDetails lg:py-8 lg:px-20">
+          <div className="flex w-full justify-around lg:justify-center">
             <div className="links xl:mr-20">
               <b className="text-red-500">Coupons</b>
 
@@ -539,8 +550,11 @@ const Nav = () => {
           </div>
         </div>
       )}
-      <div className="fixed right-2 top-32 p-5 overflow-hidden w-[60px] h-[60px] hover:w-[395px] bg-[#4070f4] shadow-[2px_2px_20px_rgba(0,0,0,0.08)] rounded-full flex group items-center hover:duration-300 duration-300 md:hidden">
-        <div className="flex items-center justify-end fill-white">
+      <div
+        className="fixed right-2 top-32 p-5 overflow-hidden w-[60px] h-[60px] hover:w-[395px] bg-[#4070f4] shadow-[2px_2px_20px_rgba(0,0,0,0.08)] rounded-full flex group items-center hover:duration-300 duration-300 md:hidden"
+        onMouseEnter={() => inputRef.current.focus()}
+      >
+        <div className="flex items-center justify-center fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="Isolation_Mode"
@@ -553,13 +567,19 @@ const Nav = () => {
           </svg>
         </div>
         <input
-          type="text"
+          type="search"
+          ref={inputRef}
+          placeholder="Search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSearch();
           }}
-          className="outline-none text-[20px] bg-transparent w-full text-white font-normal px-4"
+          className="outline-none text-2xl bg-transparent w-full text-white font-normal px-4"
+        />
+        <FaArrowCircleRight
+          className="w-12 h-12 text-white "
+          onClick={() => handleSearch()}
         />
       </div>
 
