@@ -1,5 +1,6 @@
 "use client";
 import { Heart } from "@/components/SVG";
+import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 export default function Home() {
   const user = useSelector((state) => state.user.user);
@@ -20,7 +21,13 @@ export default function Home() {
     <main className="w-full overflow-hidden">
       <section className="w-full">
         <article className="w-full h-[840px] bg-[#fffcbf] flex justify-center items-center">
-          ADS
+          ADS{" "}
+          <Link href="/products" className="mx-4 text-cyan-500">
+            Products
+          </Link>
+          <Link href="/products/1" className="text-red-600">
+            Product Description
+          </Link>
         </article>
         <article className="category">
           <h1>Best Sellers</h1>
