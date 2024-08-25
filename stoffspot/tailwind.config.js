@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#edd81c",
+        secondary: "#CEBA03",
+      },
       fontFamily: {
         stoffspot: ["abeatbyKai", "sans-serif"],
       },

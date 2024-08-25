@@ -166,15 +166,25 @@ const Nav = () => {
           </svg>
         </Link>
         <div className="hidden  md:flex justify-center items-center">
-          <Link href="/user" className="w-6 h-6 mr-4">
-            <User />
-          </Link>
-          <Link href="/wishlist" className="w-6 h-6 mr-4">
-            <Heart />
-          </Link>
-          <Link href="/cart" className="w-6 h-6 mr-4">
-            <Cart />
-          </Link>
+          {isLogin ? (
+            <>
+              <Link href="/user" className="w-6 h-6 mr-4">
+                <User />
+              </Link>
+              <Link href="/wishlist" className="w-6 h-6 mr-4">
+                <Heart />
+              </Link>
+              <Link href="/cart" className="w-6 h-6 mr-4">
+                <Cart />
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/signin" className="bg-white rounded-xl p-2">
+                Login/SignUp
+              </Link>
+            </>
+          )}
         </div>
       </div>
       <div className="w-full  min-h-[50px] flex justify-center items-center bg-white shadow z-11 ">

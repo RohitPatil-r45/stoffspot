@@ -109,6 +109,12 @@ body {
     width: 25px;
     height: 25px;
   }
+  .sideLogo {
+    @apply absolute rotate-45 scale-[2.5]  xl:scale-[5] opacity-25 left-4 xl:left-16;
+  }
+  .productGrid {
+    grid-template-columns: repeat(auto-fit, 240px);
+  }
 }
 
 @keyframes slide-in-top {
